@@ -40,13 +40,15 @@ create table HuongDan (
 );
 
 
--- Câu 1:
+-- Câu 1: Sử dụng lệnh truy vấn SQL lấy ra mã số và tên các đề tài có nhiều hơn 2 sinh viên tham gia thực tập.
+
 select detai.madt, detai.tendt 
 from detai
 join huongdan on detai.madt = huongdan.madt
 having count(huongdan.madt)>2;
 
- -- Câu 2
+ -- Câu 2: Sử dụng câu lệnh truy vấn SQL lấy ra mã số, tên đề tài của đề tài có kinh phí cao nhất .
+ 
  select madt, tendt 
  from detai 
  where kinhphi = ( 
@@ -54,7 +56,8 @@ having count(huongdan.madt)>2;
     from detai
     );
  
- -- Câu 3
+ -- Câu 3: Sử dụng câu lệnh SQL xuất ra Tên khoa, Số lượng sinh viên của mỗi khoa .
+ 
  select count(sinhvien.makhoa) as soluong, khoa.tenkhoa 
  from khoa
  join sinhvien 
